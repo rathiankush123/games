@@ -1,0 +1,19 @@
+.square{
+	width: 50px !important;
+	height: 50px !important;
+	margin-bottom: 1% !important;
+}
+
+#tttBoard{
+	margin-left: 30%;
+}
+
+#notification{
+	margin-right: 48%;
+	background-color: #7f7f80;
+	float: left;
+}
+
+.hightlight{
+	border: solid 4px black;
+}

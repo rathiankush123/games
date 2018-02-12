@@ -1,0 +1,118 @@
+<html>
+<head>
+	<title>Games</title>
+	
+	<!-- Tic Tac Toe files -->
+	<script src="./ticTacToe/src/js/script.js"></script>
+	<link rel="stylesheet" href="./ticTacToe/src/css/style.css">
+
+	<!-- Roll a dice files -->
+	<script src="./rollADice/src/js/script.js"></script>
+	<link rel="stylesheet" href="./rollADice/src/css/style.css">
+
+	<!-- Bootstrap CDN -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+	<a href="https://github.com/rathiankush123/games" target="_blank">
+		<div class="btn btn-default btn-sm" id="bulb">
+			<img src="./ticTacToe/media/bulb.png">
+		</div>
+	</a>
+
+	<!-- div for roll a dice -->
+	<div id="gameUnitWrapper" class="hovicon effect-7 sub-b">
+		<img src="./rollADice/media/dice_vector.png" data-toggle="modal" data-target="#rollADiceModal">
+	</div>
+
+	<!-- Modal for roll a dice-->
+	<div class="modal fade" id="rollADiceModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Roll some dice</h5>
+				</div>
+				
+				<!-- Modal Body -->
+				<div class="modal-body">
+					<div class="btn-toolbar m-25" id="form">
+					<div class="input-group">
+					<div class="input-group-prepend input-group-text">How many dice ?</div>
+					<input type="number" id="numberOfDice" class="form-control" value="1" style="width: 70px;" min="1" max="4">
+					</div>
+					<button id="rollButton" onclick="rollTheDice();" type="button" class="btn btn-dark">Roll</button>
+					<span id="ultimateTotal" class="badge badge-pill badge-info">Total : 0</span>
+					</div>
+					<div id="diceFloor"></div>
+				</div>
+
+				<!-- Modal Footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- div for tic tac toe -->
+	<div id="gameUnitWrapper">
+		<img src="./ticTacToe/media/ttt_vector.png" data-toggle="modal" data-target="#ticTacToeModal">
+	</div>
+
+	<!-- Modal for roll a dice-->
+	<div class="modal fade" id="ticTacToeModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h5 class="modal-title">Tic Tac Toe</h5>
+				</div>
+				
+				<!-- Modal Body -->
+				<div class="modal-body">
+					<div id="ttt_wrapper">
+
+						<!-- <button class="btn btn-success btn-lg btn-block" onclick="play()" id="play">Play</button> -->
+						
+						<div id="tttBoard">
+							<div>
+								<button id="one" onclick="toeClicked('one')" class="btn btn-outline-primary square"></button>
+								<button id="two" onclick="toeClicked('two')" class="btn btn-outline-primary square"></button>
+								<button id="three" onclick="toeClicked('three')" class="btn btn-outline-primary square"></button>
+							</div>
+							<div>
+								<button id="four" onclick="toeClicked('four')" class="btn btn-outline-primary square"></button>
+								<button id="five" onclick="toeClicked('five')" class="btn btn-outline-primary square"></button>
+								<button id="six" onclick="toeClicked('six')" class="btn btn-outline-primary square"></button>
+							</div>
+							<div>
+								<button id="seven" onclick="toeClicked('seven')" class="btn btn-outline-primary square"></button>
+								<button id="eight" onclick="toeClicked('eight')" class="btn btn-outline-primary square"></button>
+								<button id="nine" onclick="toeClicked('nine')" class="btn btn-outline-primary square"></button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Modal Footer -->
+				<div class="modal-footer">
+					<span class="badge badge-pill badge-success" id="notification">
+						Notification
+					</span>
+					<button type="button" class="btn btn-success" onclick="replay()" id="replay">Reset</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

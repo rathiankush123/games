@@ -1,0 +1,34 @@
+
+
+#wrapper{
+margin: 100px;
+}
+
+#form{
+	padding: 40px;
+}
+
+#rollButton{
+	margin-left: 15px;
+}
+
+#ultimateTotal{
+	margin-left: 13px;
+	margin-top: 17px;
+}
+
+#gameUnitWrapper img {
+	width: 250px;
+	height: 250px;
+	float: left;
+	margin: 3%; 
+}
+
+#diceFloor img {
+	width: 100px;
+	height: 100px;
+}
+
+#diceFloor {
+	margin: 30px;
+}
