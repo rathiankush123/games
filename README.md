@@ -1,4 +1,4 @@
-# Games 🎮🎲
+# Games 🎮
 
 Just a few doodles. Have fun.
 
