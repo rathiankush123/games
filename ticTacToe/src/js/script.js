@@ -43,7 +43,7 @@ function toeClicked(cubeId){
 	if(moveCount > 4){
 		result = checkForWin();	
 	}
-	if(result.includes("won")){
+	if(result.includes("wins")){
 		for (var i = allBtns.length - 1; i >= 0; i--) {
 			allBtns[i].setAttribute("disabled","disabled");
 			document.getElementById("notification").classList.add("hightlight");
@@ -54,18 +54,21 @@ function toeClicked(cubeId){
 }
 
 function updateNotification(result){
-	if(result.includes("null")){
-		if (moveCount % 2 != 0){
-		document.getElementById("notification").innerHTML = "Yellow's turn";
-		}else{
-			document.getElementById("notification").innerHTML = "Blue's turn";
-		}
-		
+	if(moveCount == 9 && !result.includes("wins")){
+		document.getElementById("notification").innerHTML = "Game Over";
+		document.getElementById("notification").classList.add("hightlight");
 	}else{
-		document.getElementById("notification").innerHTML = result;	
+		if(result.includes("null")){
+			if (moveCount % 2 != 0){
+			document.getElementById("notification").innerHTML = "Yellow's turn";
+			}else{
+				document.getElementById("notification").innerHTML = "Blue's turn";
+			}
+			
+		}else{
+			document.getElementById("notification").innerHTML = result;	
+		}
 	}
-	
-
 }
 
 function checkForWin(){
@@ -83,66 +86,66 @@ function checkForWin(){
 	//123
 	if(cubeOne==cubeTwo && cubeTwo==cubeThree){
 		if(cubeOne.includes("btn-primary")){
-			return "Blue won";
+			return "Blue wins";
 		}else if(cubeOne.includes("btn-warning")){
-			return "Yellow won";
+			return "Yellow wins";
 		}
 	}
 	//456
 	if(cubeFour==cubeFive && cubeFive==cubeSix){
 		console.log("456");
 		if(cubeFour.includes("btn-primary")){
-			return "Blue won";
+			return "Blue wins";
 		}else if(cubeFour.includes("btn-warning")){
-			return "Yellow won";
+			return "Yellow wins";
 		}
 	}
 	//789
 	if(cubeSeven==cubeEight && cubeEight==cubeNine){
 		if(cubeSeven.includes("btn-primary")){
-			return "Blue won";
+			return "Blue wins";
 		}else if(cubeSeven.includes("btn-warning")){
-			return "Yellow won";
+			return "Yellow wins";
 		}
 	}
 	//147
 	if(cubeOne==cubeFour && cubeFour==cubeSeven){
 		if(cubeOne.includes("btn-primary")){
-			return "Blue won";
+			return "Blue wins";
 		}else if(cubeOne.includes("btn-warning")){
-			return "Yellow won";
+			return "Yellow wins";
 		}
 	}
 	//258
 	if(cubeTwo==cubeFive && cubeFive==cubeEight){
 		if(cubeTwo.includes("btn-primary")){
-			return "Blue won";
+			return "Blue wins";
 		}else if(cubeTwo.includes("btn-warning")){
-			return "Yellow won";
+			return "Yellow wins";
 		}
 	}
 	//369
 	if(cubeThree==cubeSix && cubeSix==cubeNine){
 		if(cubeThree.includes("btn-primary")){
-			return "Blue won";
+			return "Blue wins";
 		}else if(cubeThree.includes("btn-warning")){
-			return "Yellow won";
+			return "Yellow wins";
 		}
 	}
 	//159
 	if(cubeOne==cubeFive && cubeFive==cubeNine){
 		if(cubeOne.includes("btn-primary")){
-			return "Blue won";
+			return "Blue wins";
 		}else if(cubeOne.includes("btn-warning")){
-			return "Yellow won";
+			return "Yellow wins";
 		}
 	}
 	//357
 	if(cubeThree==cubeFive && cubeFive==cubeSeven){
 		if(cubeThree.includes("btn-primary")){
-			return "Blue won";
+			return "Blue wins";
 		}else if(cubeThree.includes("btn-warning")){
-			return "Yellow won";
+			return "Yellow wins";
 		}
 	}
 	return "null";
