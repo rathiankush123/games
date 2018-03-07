@@ -41,7 +41,7 @@ function toeClicked(cubeId){
 
 	var result = "null";
 	if(moveCount > 4){
-		result = checkForWin();	
+		result = checkForWinTTT();	
 	}
 	if(result.includes("wins")){
 		for (var i = allBtns.length - 1; i >= 0; i--) {
@@ -71,7 +71,7 @@ function updateNotification(result){
 	}
 }
 
-function checkForWin(){
+function checkForWinTTT(){
 
 	var cubeOne = document.getElementById("one").classList.toString();
 	var cubeTwo = document.getElementById("two").classList.toString();
