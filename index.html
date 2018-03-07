@@ -1,6 +1,11 @@
 <html>
 <head>
 	<title>Games</title>
+	<!-- Bootstrap CDN -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	
 	<!-- Tic Tac Toe files -->
 	<script src="./ticTacToe/src/js/script.js"></script>
@@ -10,11 +15,9 @@
 	<script src="./rollADice/src/js/script.js"></script>
 	<link rel="stylesheet" href="./rollADice/src/css/style.css">
 
-	<!-- Bootstrap CDN -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<!-- Calculator files -->
+	<script src="./calculator/src/js/script.js"></script>
+	<link rel="stylesheet" href="./calculator/src/css/style.css">
 </head>
 
 <body>
@@ -66,7 +69,7 @@
 		<img src="./ticTacToe/media/ttt_vector.png" data-toggle="modal" data-target="#ticTacToeModal">
 	</div>
 
-	<!-- Modal for roll a dice-->
+	<!-- Modal for tic tac toe-->
 	<div class="modal fade" id="ticTacToeModal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -109,6 +112,110 @@
 					</span>
 					<button type="button" class="btn btn-success" onclick="replay()" id="replay">Reset</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- div for calculator -->
+	<div id="gameUnitWrapper">
+		<img src="./calculator/media/calculator.png" data-toggle="modal" data-target="#calculatorModal">
+	</div>
+
+	<!-- modal for calculator -->
+	<div class="modal fade" id="calculatorModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h5 class="modal-title">Calculator - The Game</h5>
+					<button id="CALCplayBtn" class="btn btn-success" onclick="main()">Play</button>
+				</div>
+				
+				<!-- Modal Body -->
+				<div class="modal-body">
+
+					<div id="calculatorWrapper">
+						<div id="calcLEDWrapper">
+							<div id="level" class="badge badge-warning">Level : 0</div>
+							<div id="moves" class="badge badge-primary">Moves : 0</div>
+							<div class="btn btn-dark" style="margin-left: 87px;" disabled>
+							  Goal <span id="goal" class="badge badge-light">0</span>
+							</div>
+							<br><input id="calcLED" disabled>
+						</div>
+						<div id="calcBtnWrapper">
+							<div>
+								<button id="CALCone" class="btn btn-warning" data-container="body" data-toggle="popover" data-placement="left" data-trigger="focus" title="How to play?"
+								data-content="
+
+								The aim is to reach the GOAL figure by using the calculator buttons in specific number of moves. You might need a little maths for this, but its really interesting. If you're stuck, don't worry, you can always see the solution right there by clicking on <div class='btn btn-success'><img style='height:10px; width:10px;' src='./calculator/media/hint.png'></div><br>
+								This doodle is actually a simulation of <a href='https://play.google.com/store/apps/details?id=com.sm.calculateme&hl=en'>this</a> android game.<br>
+								I've created only a few levels as of now. (maybe, i'll add some levels soon)<br>
+								Below you can find some details about buttons.<br>
+
+								<div style='height:20px; width:35px; font-size:12px;' class='btn btn-primary'><div style='margin-top:-5px;'>+5</div></div> Adds 5<br>
+								<div style='height:20px; width:35px; font-size:12px;' class='btn btn-primary'><div style='margin-top:-5px;'>-5</div></div> Subtracts 5<br>
+								<div style='height:20px; width:35px; font-size:12px;' class='btn btn-primary'><div style='margin-top:-5px;'>x5</div></div> Multiplies with 5<br>
+								<div style='height:20px; width:35px; font-size:12px;' class='btn btn-primary'><div style='margin-top:-5px;'>/5</div></div> Divides with 5<br>
+								<div style='height:20px; width:35px; font-size:12px;' class='btn btn-primary'><div style='margin-top:-5px;'>5</div></div> Add 5 at the end<br>
+								<div style='height:20px; width:35px; font-size:12px;' class='btn btn-primary'><div style='margin-top:-5px;'><<</div></div> Deletes last number<br>
+								<div style='height:20px; width:35px; font-size:12px;' class='btn btn-primary'><div style='margin-top:-5px;'>^2</div></div> Does a square<br>
+								<div style='height:20px; width:35px; font-size:12px;' class='btn btn-primary'><div style='margin-top:-5px;'>^3</div></div> Does a cube<br>
+								">
+									<img src="./calculator/media/help.png">
+								</button>
+								<button id="CALCtwo" class="btn btn-primary"></button>
+								<button id="CALCthree" class="btn btn-danger" onclick="clearLED()">
+									<img src="./calculator/media/replay.png">
+								</button>
+							</div>
+							<div>
+								<button id="CALCfour" class="btn btn-success" data-container="body" data-toggle="popover" data-placement="left" data-trigger="focus">
+									<img src="./calculator/media/hint.png">
+								</button>
+								<button id="CALCfive" class="btn btn-primary"></button>
+								<button id="CALCsix" class="btn btn-primary"></button>
+							</div>
+							<div>
+								<button id="CALCseven" class="btn btn-dark" data-container="body" data-toggle="popover" data-placement="left"
+								title="Switch Level" data-content='
+									<div class="input-group input-group-sm mb-3">
+									  <input style="width:10px" id="switchLevelInput" type="number" value="1" class="form-control">
+									  <div class="input-group-append">
+									    <button class="btn btn-info" type="button" onclick="switchLevel()">OK</button>
+									  </div>
+									</div>
+								'>
+								<img src="./calculator/media/setting.png">
+							</button>
+								<button id="CALCeight" class="btn btn-primary"></button>
+								<button id="CALCnine" class="btn btn-primary"></button>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+
+				<!-- Modal Footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- modal for winModal -->
+	<div class="modal fade" id="winModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+								
+				<!-- Modal Body -->
+				<div class="modal-body">
+					<span id="yaayMSG"></span>
+					<button style="float:right;" type="button" class="btn btn-success" data-dismiss="modal" 
+					onclick="loadNextLevel()">Okay</button>
 				</div>
 			</div>
 		</div>

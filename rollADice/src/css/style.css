@@ -32,3 +32,8 @@ margin: 100px;
 #diceFloor {
 	margin: 30px;
 }
+
+#gameUnitWrapper img:hover{
+	border: dashed 4px #5B5B5B;
+	border-radius: 1000px;
+}
