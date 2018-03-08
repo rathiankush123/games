@@ -61,6 +61,8 @@ function executeMathFun(btnValue){
 		if(btnValue.indexOf("x")>-1){
 			var btnValueInt = parseInt(btnValue.substr(1));
 			document.getElementById("calcLED").value = currentcalcLED * btnValueInt;
+		}else if(btnValue.indexOf("+/-")>-1){
+			document.getElementById("calcLED").value = currentcalcLED*-1;
 		}else if (btnValue.indexOf("/")>-1){
 			var btnValueInt = parseInt(btnValue.substr(1));
 			document.getElementById("calcLED").value = currentcalcLED / btnValueInt;
@@ -79,6 +81,13 @@ function executeMathFun(btnValue){
 				currentcalcLED = parseInt(currentcalcLED.toString().slice(0, -1));
 				document.getElementById("calcLED").value = currentcalcLED;
 			}
+		}else if(btnValue.indexOf("~")>-1){
+			var temp = btnValue.split("~");
+			document.getElementById("calcLED").value = currentcalcLED.toString().replace(new RegExp(temp[0], 'g'),temp[1]);
+		}else if(btnValue.indexOf("^2")>-1){
+			document.getElementById("calcLED").value = currentcalcLED * currentcalcLED;
+		}else if(btnValue.indexOf("^3")>-1){
+			document.getElementById("calcLED").value = currentcalcLED * currentcalcLED * currentcalcLED;
 		}else if(parseInt(btnValue)){
 			if(currentcalcLED == 0){
 				currentcalcLED = btnValue;
@@ -142,5 +151,38 @@ var levels = {
 	"14" : "14, 5, 21, 0, +5 | x3 | x5 | <<, +5 | x5 | << | +5 | x3",
 	"15" : "15, 3, 50, 10, x3|x2|-5, x3 | -5 | x2",
 	"16" : "16, 5, 2, 0, +4|x9|<<, +4 | x9 | << | x9 | <<",
-	"17" : "17, 2, 11, 0, 1, 1 | 1"
+	"17" : "17, 2, 11, 0, 1, 1 | 1",
+	"18" : "18, 3, 101, 0, 1|0, 1 | 0 | 1",
+	"19" : "19, 3, 44, 0, 2|x2, 2 | 2 | x2",
+	"20" : "20, 2, 35, 0, +3|5, +3 | 5",
+	"21" : "21, 3, 56, 0, 1|+5, +5 | 1 | +5",
+	"22" : "22, 4, 9, 0, +2|/3|1, +2 | 1 | /3 | +2",
+	"23" : "23, 4, 10, 15, 0|+2|/5, /5 | +2 | 0 | /5",
+	"24" : "24, 5, 210, 0, -5|+5|5|2, 2 | 5 | -5 | 5 | +5",
+	"25" : "25, 4, 2020, 40, 0|+4|/2, 0 | +4 | /2 | 0",
+	"26" : "26, 4, 11, 0, 12|<<, 12 | << | 12 | <<",
+	"27" : "27, 4, 102, 0, 10|+1|<<, 10 | 10 | << | +1",
+	"28" : "28, 4, 222, 0, 1|1~2, 1 | 1 | 1 | 1~2",
+	"29" : "29, 4, 93, 0, +6|x7|6~9, +6 | 6~9 | x7 | 6~9",
+	"30" : "30, 6, 2321, 0, 1|2|1~2|2~3, 1 | 2 | 2~3 | 1~2 | 2 | 1",
+	"31" : "31, 5, 24, 0, +9|x2|8~4, +9 | +9 | 8~4 | x2 | 8~4",
+	"32" : "32, 5, 29, 11, /2|+3|1~2|2~9, +3 | 1~2 | /2 | 2~9 | 1~2",
+	"33" : "33, 5, 20, 36, +3|/3|1~2, /3 | /3 | +3 | +3 | 1~2",
+	"34" : "34, 4, 15, 2, /3|1|x2|4~5, 1 | /3 | x2 | 4~5",
+	"35" : "35, 4, 414, 1234, 23~41|24~14|12~24|14~2, 12~24 | 24~14 | 14~2 | 23~41",
+	"36" : "36, 4, -85, 0, +6|5|-7, -7 | -7 | +6 | 5",
+	"37" : "37, 3, 9, 0, -1|-2|^2, -1 | -2 | ^2",
+	"38" : "38, 4, -120, 0, x5|-6|4, 4 | -6 | 4 | x5",
+	"39" : "39, 3, 144, 0, -1|2|^2, -1 | 2 | ^2",
+	"40" : "40, 1, 5, -5, +/-, +/-",
+	"41" : "41, 3, -6, 0, +4|+2|+/-, +4 | +2 | +/-",
+	"42" : "42, 4, -13, 0, +3|-7|+/-, +3 | +3 | +/- | -7",
+	"43" : "43, 4, 60, 0, +5|-10|x4|+/-, -10 | +/- | +5 | x4",
+	"44" : "44, 5, 52, 44, +9|/2|x4|+/-, /2 | +/- | +9 | x4 | +/-",
+	"45" : "45, 5, 10, 9, +5|x5|+/-, +/- | +5 | +5 | x5 | +5",
+	"46" : "46, 5, 12, 14, 6|+5|/8|+/-, +/- | +5 | 6 | /8 | +/-",
+	"47" : "47, 4, 13, 55, +9|+/-|<<, << | +/- | +9 | +9 ",
+	"48" : "48, 5, 245, 0, -3|5|x4|+/-, -3 | -3 | x4 | +/- | 5",
+	"49" : "49, 4, 12, 39, x-3|/3|+9|+/-, /3 | +/- | +9 | x-3",
+	"50" : "50, 6, 126, 111, x3|-9|+/-|<<, << | x3 | +/- | -9 | x3 | +/-"
 };
