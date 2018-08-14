@@ -88,7 +88,7 @@ function executeMathFun(btnValue){
 			document.getElementById("calcLED").value = currentcalcLED * currentcalcLED;
 		}else if(btnValue.indexOf("^3")>-1){
 			document.getElementById("calcLED").value = currentcalcLED * currentcalcLED * currentcalcLED;
-		}else if(parseInt(btnValue)){
+		}else if(parseInt(btnValue) >= 0){
 			if(currentcalcLED == 0){
 				currentcalcLED = btnValue;
 			}else{
