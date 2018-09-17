@@ -18,6 +18,10 @@
 	<!-- Calculator files -->
 	<script src="./calculator/src/js/script.js"></script>
 	<link rel="stylesheet" href="./calculator/src/css/style.css">
+
+	<!-- 50 Clicks files -->
+	<script src="./50clicks/src/js/script.js"></script>
+	<link rel="stylesheet" href="./50clicks/src/css/style.css">
 </head>
 
 <body>
@@ -217,6 +221,78 @@
 					<span id="yaayMSG"></span>
 					<button style="float:right;" type="button" class="btn btn-success" data-dismiss="modal" 
 					onclick="loadNextLevel()">Next</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- div for 50clicks -->
+	<div id="gameUnitWrapper">
+		<img src="./50clicks/media/50clicks_icon.png" data-toggle="modal" data-target="#50clicksModal" onClick="loadBricks()">
+	</div>
+
+	<!-- Modal for 50clicks-->
+	<div class="modal fade" id="50clicksModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h5 class="modal-title">50 Clicks</h5>
+					<button class="btn btn-danger" id="playBtn50" onClick="loadBricks()">
+						<img src="./50clicks/media/play.png">
+					</button>
+					<button class="btn btn-warning" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" title="How to play?"
+							data-content="Start clicking on buttons from 1 to 50 sequencially. Once you click on first button, the timer will start. The aim is to click faster. That's it, have fun.">
+							<img src="./50clicks/media/help.png">
+					</button>
+				</div>
+				
+				<!-- Modal Body -->
+				<div class="modal-body" style="margin-left:115px; margin-bottom:20px;">
+
+					<div id="infoBox">
+
+						<span id="showAim" class="badge badge-pill badge-info">Click on : 00</span>
+
+						<div id="timerWrapper" class="badge badge-pill badge-dark">
+						  Time : <span id="minutes">00</span>:<span id="seconds">00</span>
+						</div>
+					</div>
+
+					<div id="bricksWrapper">
+						<button id="1x1" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="1x2" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="1x3" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="1x4" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="1x5" class="btn btn-outline-dark" onClick="burstBrick()">00</button><br>
+						<button id="2x1" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="2x2" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="2x3" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="2x4" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="2x5" class="btn btn-outline-dark" onClick="burstBrick()">00</button><br>
+						<button id="3x1" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="3x2" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="3x3" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="3x4" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="3x5" class="btn btn-outline-dark" onClick="burstBrick()">00</button><br>
+						<button id="4x1" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="4x2" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="4x3" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="4x4" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="4x5" class="btn btn-outline-dark" onClick="burstBrick()">00</button><br>
+						<button id="5x1" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="5x2" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="5x3" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="5x4" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+						<button id="5x5" class="btn btn-outline-dark" onClick="burstBrick()">00</button>
+					</div>
+
+				</div>
+
+				<!-- Modal Footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,21 @@
+#playBtn50{
+	margin-left: 245px;
+}
+
+#bricksWrapper button{
+	margin-bottom: 5px;
+}
+
+#timerWrapper{
+	/*width:85px;*/
+	padding: 10px;
+}
+
+#showAim{
+	padding: 10px;
+}
+
+#infoBox{
+	margin-left:30px;
+	margin-bottom: 20px;
+}
